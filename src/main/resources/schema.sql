@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS players (
 
 USE football;
 
-INSERT INTO teams (id, balance, bio, commission_rate, establishment_date, name) VALUES (1, 100000000, 'Top football team from the city.', 10, '2010-05-13', 'Green Lions');
+INSERT INTO teams (id, balance, bio, commission_rate, establishment_date, name) VALUES (1, 10000000, 'Top football team from the city.', 10, '2010-05-13', 'Green Lions');
 INSERT INTO teams (id, balance, bio, commission_rate, establishment_date, name) VALUES (2, 1, 'Bottom football team from the streets', 1, '2020-05-07', 'Purple Turtles');
 
 INSERT INTO players (id, bio, date_of_birth, name, playing_since, team_id) VALUES (1, 'Best player ever', '1987-06-24', 'Kirito Football', '2015-10-14', 2);
