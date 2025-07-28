@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql-football
+    ports:
+      - "17776:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: football
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+  app:
+    container_name: football-manager
+    restart: always
+    build: .
+    depends_on:
+      - mysql
+    ports:
+      - "2002:2002"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/football
+      SPRING_DATASOURCE_USERNAME: username
+      SPRING_DATASOURCE_PASSWORD: password
+
+volumes:
+  mysql_data:
